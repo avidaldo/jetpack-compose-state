@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 fun Ej02Screen() {
     var linea by remember { mutableStateOf(String()) }
     // TODO: por qué no funciona con StringBuilder?
+    // https://github.com/avidaldo/EstadoS
 
     Box(Modifier.fillMaxSize().padding(60.dp)) {
         Text(text = linea, Modifier.align(Alignment.TopCenter))
