@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeestado.screens
+package com.example.jetpackcomposeestado.screens.ej02
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,22 +17,17 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun Ej02Screen() {
     var linea by remember { mutableStateOf(String()) }
-    // TODO: por qué no funciona con StringBuilder?
-    // https://github.com/avidaldo/EstadoS
+    // TODO: por qué no funciona con StringBuilder? (https://github.com/avidaldo/EstadoS)
 
     Box(Modifier.fillMaxSize().padding(60.dp)) {
         Text(text = linea, Modifier.align(Alignment.TopCenter))
         Button(
             onClick = { linea += "X" },
             Modifier.align(Alignment.CenterStart)
-        ) {
-            Text(text = "X")
-        }
+        ) { Text(text = "X") }
         Button(
             onClick = { linea += "O" },
             Modifier.align(Alignment.CenterEnd)
-        ) {
-            Text(text = "O")
-        }
+        ) { Text(text = "O") }
     }
 }

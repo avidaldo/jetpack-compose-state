@@ -28,6 +28,12 @@ fun MainScreen(navController: NavController) {
         Button(onClick = { navController.navigate(route = Screens.Ejemplo03.route) }) {
             Text(text = "Ejemplo 3")
         }
+        Button(onClick = { navController.navigate(route = Screens.Ejemplo04.route) }) {
+            Text(text = "Ejemplo 4")
+        }
+        Button(onClick = { navController.navigate(route = Screens.Ejemplo05.route) }) {
+            Text(text = "Ejemplo 5")
+        }
     }
 
 }

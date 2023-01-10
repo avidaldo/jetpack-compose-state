@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeestado.screens
+package com.example.jetpackcomposeestado.screens.ej01
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 @Preview(showBackground = true)
 @Composable
 fun Ej01Screen() {
+
     var cuenta by remember { mutableStateOf(0) }
 
     Box(Modifier.fillMaxSize()) {
