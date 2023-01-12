@@ -23,12 +23,9 @@ fun Ej04Screen(navController: NavController) {
             Text(text = "Versión básica")
         }
         Button(onClick = { navController.navigate(route = Screens.Ejemplo04b.route) }) {
-            Text(text = "Mejorada")
-        }
-        Button(onClick = { navController.navigate(route = Screens.Ejemplo04c.route) }) {
             Text(text = "Con State Hoisting")
         }
-        Button(onClick = { navController.navigate(route = Screens.Ejemplo04d.route) }) {
+        Button(onClick = { navController.navigate(route = Screens.Ejemplo04c.route) }) {
             Text(text = "Con ViewModel")
         }
     }

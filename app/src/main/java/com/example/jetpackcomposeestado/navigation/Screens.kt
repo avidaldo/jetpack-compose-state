@@ -15,11 +15,13 @@ sealed class Screens(val route: String){
     object Ejemplo04a: Screens("ej04a")
     object Ejemplo04b: Screens("ej04b")
     object Ejemplo04c: Screens("ej04c")
-    object Ejemplo04d: Screens("ej04d")
-
-
 
     object Ejemplo05: Screens("ej05")
+    object Ejemplo05a: Screens("ej05a")
+    object Ejemplo05b: Screens("ej05b")
+
+
+
     object Ejemplo06: Screens("ej06")
     object Ejemplo07: Screens("ej07")
     object Ejemplo08: Screens("ej08")

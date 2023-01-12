@@ -16,10 +16,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Ej04bScreen() {
-
+fun Ej04bScreen() {  // Usando State Hoisting
     var name by rememberSaveable { mutableStateOf("") }
+    Ej04bContent(name = name, onNameChange = { name = it })
+}
 
+@Composable
+fun Ej04bContent(name: String, onNameChange: (String) -> Unit) {
     Column(
         Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -27,12 +30,11 @@ fun Ej04bScreen() {
     ) {
 
         OutlinedTextField(value = name,
-            onValueChange = { name = it },
+            onValueChange = onNameChange,
             label = { Text(text = "Name") }
         )
 
         if (name.isNotBlank())
             Text(text = "¡Hola, $name!", Modifier.padding(10.dp))
     }
-
 }

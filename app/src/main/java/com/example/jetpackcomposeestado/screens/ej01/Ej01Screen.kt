@@ -18,7 +18,7 @@ fun Ej01Screen() {
 
     Box(Modifier.fillMaxSize()) {
         Button(
-            onClick = { cuenta += 1 },
+            onClick = { cuenta++ },
             Modifier.align(Alignment.Center)
         ) {
             Text(text = "$cuenta")
