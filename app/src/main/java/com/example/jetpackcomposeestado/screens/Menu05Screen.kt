@@ -12,25 +12,22 @@ import androidx.navigation.NavController
 import com.example.jetpackcomposeestado.navigation.Screens
 
 @Composable
-fun Ej04Screen(navController: NavController) {
+fun Ej05Screen(navController: NavController) {
 
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Button(onClick = { navController.navigate(route = Screens.Ejemplo04a.route) }) {
+        Button(onClick = { navController.navigate(route = Screens.Ejemplo05a.route) }) {
             Text(text = "Versión básica")
         }
-        Button(onClick = { navController.navigate(route = Screens.Ejemplo04b.route) }) {
-            Text(text = "Mejorada")
-        }
-        Button(onClick = { navController.navigate(route = Screens.Ejemplo04c.route) }) {
+        Button(onClick = { navController.navigate(route = Screens.Ejemplo05b.route) }) {
             Text(text = "Con State Hoisting")
         }
-        Button(onClick = { navController.navigate(route = Screens.Ejemplo04d.route) }) {
+/*        Button(onClick = { navController.navigate(route = Screens.Ejemplo05c.route) }) {
             Text(text = "Con ViewModel")
-        }
+        }*/
     }
 
 }
