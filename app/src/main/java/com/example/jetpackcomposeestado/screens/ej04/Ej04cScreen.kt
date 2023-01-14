@@ -17,7 +17,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 
-// Usando ViewModel
+// Usando ViewModel con LiveData
 
 class Ej04cViewModel : ViewModel() {
     private val _name = MutableLiveData("")
