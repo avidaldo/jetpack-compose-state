@@ -56,10 +56,9 @@ fun Ej05aScreen() {
                 Spacer(Modifier.width(10.dp))
                 Text(text = cuenta1.toString())
                 Spacer(Modifier.width(6.dp))
-                Box(Modifier.clickable { cuenta1 = 0 }) {
-                    Image(painter = painterResource(id = android.R.drawable.ic_menu_delete),
-                        contentDescription = "Borrar")
-                }
+                Image(painter = painterResource(id = android.R.drawable.ic_menu_delete),
+                    contentDescription = "Borrar",
+                    Modifier.clickable { cuenta1 = 0 })
             }
             Row(Modifier.padding(horizontal = 20.dp),
                 horizontalArrangement = Arrangement.Center,
@@ -95,10 +94,9 @@ fun Ej05aScreen() {
                 Spacer(Modifier.width(10.dp))
                 Text(text = cuenta2.toString())
                 Spacer(Modifier.width(6.dp))
-                Box(Modifier.clickable { cuenta2 = 0 }) {
-                    Image(painter = painterResource(id = android.R.drawable.ic_menu_delete),
-                        contentDescription = "Borrar")
-                }
+                Image(painter = painterResource(id = android.R.drawable.ic_menu_delete),
+                    contentDescription = "Borrar",
+                    Modifier.clickable { cuenta2 = 0 })
             }
             Row(Modifier.padding(horizontal = 20.dp),
                 horizontalArrangement = Arrangement.Center,
@@ -129,10 +127,9 @@ fun Ej05aScreen() {
             Spacer(Modifier.width(10.dp))
             Text(text = cuentaG.toString())
             Spacer(Modifier.width(6.dp))
-            Box(Modifier.clickable { cuentaG = 0 }) {
-                Image(painter = painterResource(id = android.R.drawable.ic_menu_delete),
-                    contentDescription = "Borrar")
-            }
+            Image(painter = painterResource(id = android.R.drawable.ic_menu_delete),
+                contentDescription = "Borrar",
+                Modifier.clickable { cuentaG = 0 })
         }
     }
 }

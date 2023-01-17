@@ -52,10 +52,7 @@ fun Ej05bScreen() {
                 cuentaG += incremento1
                 focusManager.clearFocus()  // (1)
             },
-            onIncrementChange = {
-                incremento1 = it.toIntOrNull() ?: incrementDefault
-                if (incremento1 > 99 || incremento1 < 1) incremento1 = 1
-            },
+            setIncrement = { incremento2 = it },
             onResetCount = { cuenta1 = 0 }
         )
         BloqueContador(buttonText = "Contador 2",
@@ -65,10 +62,7 @@ fun Ej05bScreen() {
                 cuenta2 += incremento2
                 cuentaG += incremento2
             },
-            onIncrementChange = {
-                incremento2 = it.toIntOrNull() ?: incrementDefault
-                if (incremento2 > 99 || incremento2 < 1) incremento2 = 1
-            },
+            setIncrement = { incremento2 = it },
             onResetCount = { cuenta2 = 0 }
         )
 
@@ -77,10 +71,9 @@ fun Ej05bScreen() {
             Spacer(Modifier.width(10.dp))
             Text(text = cuentaG.toString())
             Spacer(Modifier.width(6.dp))
-            Box(Modifier.clickable { cuentaG = 0 }) {
-                Image(painter = painterResource(id = android.R.drawable.ic_menu_delete),
-                    contentDescription = "Borrar")
-            }
+            Image(painter = painterResource(id = android.R.drawable.ic_menu_delete),
+                contentDescription = "Borrar",
+                Modifier.clickable { cuentaG = 0 })
         }
     }
 }
@@ -91,43 +84,54 @@ fun BloqueContador(
     cuenta: Int,
     incremento: Int,
     onClick: () -> Unit,
-    onIncrementChange: (String) -> Unit,
+    setIncrement: (Int) -> Unit,
     onResetCount: () -> Unit,
 ) {
     Column() {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center) {
+            horizontalArrangement = Arrangement.Center
+        ) {
             Button(onClick = onClick) {
                 Text(text = "$buttonText  ($cuenta)")
             }
             Spacer(Modifier.width(10.dp))
             Text(text = cuenta.toString())
             Spacer(Modifier.width(6.dp))
-            Box(Modifier.clickable(onClick = { onResetCount() })) {
-                Image(painter = painterResource(id = android.R.drawable.ic_menu_delete),
-                    contentDescription = "Borrar")
+            Box(Modifier.clickable(onClick = onResetCount)) {
+                Image(
+                    painter = painterResource(id = android.R.drawable.ic_menu_delete),
+                    contentDescription = "Borrar"
+                )
             }
         }
-        Row(Modifier.padding(horizontal = 20.dp),
+        Row(
+            Modifier.padding(horizontal = 20.dp),
             horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.Bottom) {
+            verticalAlignment = Alignment.Bottom
+        ) {
             Text(text = "Incremento: ")
             BasicTextField(
                 value = incremento.toString(),
-                onValueChange = onIncrementChange,
+                onValueChange = { setIncrement(incrementFromString(it)) },
                 Modifier
                     .width(30.dp)
                     .height(28.dp),
                 textStyle = LocalTextStyle.current.copy(
                     color = MaterialTheme.colors.onBackground,
-                    textAlign = TextAlign.End), // (2)
+                    textAlign = TextAlign.End
+                ), // (2)
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number), // (1)
                 decorationBox = { decorationBox(it) }
             )
         }
     }
 }
+
+
+fun incrementFromString(string: String) = string.toIntOrNull()
+    ?.let { if (it > 99 || it < 1) incrementDefault else it } // si no está en [1,99]
+    ?: incrementDefault // o si no es un int, devuelve incrementDefault
 
 /*
 https://stackoverflow.com/questions/67058630/how-clear-focus-for-basictextfield-in-jetpack-compose
