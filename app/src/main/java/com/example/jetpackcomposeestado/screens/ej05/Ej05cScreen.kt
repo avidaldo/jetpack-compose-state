@@ -1,5 +1,6 @@
 package com.example.jetpackcomposeestado.screens.ej05
 
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -18,48 +19,47 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.jetpackcomposeestado.R
 
 
 @Preview(showBackground = true)
 @Composable
-fun Ej05bScreen() {
+fun Ej05cScreen() {
 
     var cuenta1 by rememberSaveable { mutableStateOf(startCountDefault) }
     var cuenta2 by rememberSaveable { mutableStateOf(startCountDefault) }
     var cuentaG by rememberSaveable { mutableStateOf(startCountDefault) }
 
-    var incremento1 by rememberSaveable { mutableStateOf(incrementDefault) }
-    var incremento2 by rememberSaveable { mutableStateOf(incrementDefault) }
+    var incremento1: Int? by rememberSaveable { mutableStateOf(incrementDefault) }  // (1)
+    var incremento2: Int? by rememberSaveable { mutableStateOf(incrementDefault) }
 
-
-    val focusManager = LocalFocusManager.current
 
     Column(
         Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly,
     ) {
-        BloqueContador(buttonText = "Contador 1",
+        BloqueContadorC(buttonText = stringResource(R.string.count1_text),
             cuenta = cuenta1,
             incremento = incremento1,
             onClick = {
-                cuenta1 += incremento1
-                cuentaG += incremento1
-                focusManager.clearFocus()
+                cuenta1 += incremento1!! // (2)
+                cuentaG += incremento1!!
             },
-            setIncrement = { incremento2 = it },
+            setIncrement = { incremento1 = it },
             onResetCount = { cuenta1 = 0 }
         )
-        BloqueContador(buttonText = "Contador 2",
+        BloqueContadorC(buttonText = stringResource(R.string.count2_text),
             cuenta = cuenta2,
             incremento = incremento2,
             onClick = {
-                cuenta2 += incremento2
-                cuentaG += incremento2
+                cuenta2 += incremento2!!
+                cuentaG += incremento2!!
             },
             setIncrement = { incremento2 = it },
             onResetCount = { cuenta2 = 0 }
@@ -71,29 +71,35 @@ fun Ej05bScreen() {
             Text(text = cuentaG.toString())
             Spacer(Modifier.width(6.dp))
             Image(painter = painterResource(id = android.R.drawable.ic_menu_delete),
-                contentDescription = "Borrar",
+                contentDescription = stringResource(R.string.reset),
                 Modifier.clickable { cuentaG = 0 })
         }
     }
 }
 
 @Composable
-fun BloqueContador(
+fun BloqueContadorC(
     buttonText: String,
     cuenta: Int,
-    incremento: Int,
+    incremento: Int?,
     onClick: () -> Unit,
-    setIncrement: (Int) -> Unit,
+    setIncrement: (Int?) -> Unit,
     onResetCount: () -> Unit,
 ) {
+
+    val focusManager = LocalFocusManager.current
+
     Column() {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {
-            Button(onClick = onClick) {
-                Text(text = "$buttonText  ($cuenta)")
-            }
+            Button(
+                onClick = {
+                    onClick()
+                    focusManager.clearFocus() // Esconde el teclado
+                }, enabled = (incremento != null)
+            ) { Text(text = "$buttonText  ($cuenta)") }
             Spacer(Modifier.width(10.dp))
             Text(text = cuenta.toString())
             Spacer(Modifier.width(6.dp))
@@ -111,8 +117,10 @@ fun BloqueContador(
         ) {
             Text(text = "Incremento: ")
             BasicTextField(
-                value = incremento.toString(),
-                onValueChange = { setIncrement(incrementFromString(it)) },
+                value = incremento?.toString() ?: "",
+                onValueChange = {
+                    setIncrement(incrementFromStringOrNull(it))
+                },
                 Modifier
                     .width(30.dp)
                     .height(28.dp),
@@ -128,12 +136,19 @@ fun BloqueContador(
 }
 
 
-fun incrementFromString(string: String) = string.toIntOrNull()
-    ?.let { if (it > 99 || it < 1) incrementDefault else it } // si no está en [1,99]
-    ?: incrementDefault // o si no es un int, devuelve incrementDefault
-
+fun incrementFromStringOrNull(string: String) = string.toIntOrNull()
+    ?.let { if (it > 99 || it < 1) null else it } // si no está en [1,99] (ahora devuelve null)
 
 /*
- Esta versión tiene un gran problema de UX: si se quiere cambiar un número no se puede borrar, ya
- que dejar la cadena vacía introduce un 1 directamente (1). Se soluciona en la variante Ej05c.
+
+(1) Declaro el incremento nullable para utilizar incremento==null como indicador del estado en que,
+estando el TextField de incremento vacío, se desactiva el bottón. El incremento se pone a null
+cuando el TextField está vacío y con ello se desactiva el botón. Se soluciona
+así el problema de la versión previa, que no permitía dejar vacía la caja para poder introducir
+un nuevo número.
+
+(2) Uso la llamada non-null asserted (!!). De este modo le garantizamos al compilador que el valor
+en ese punto no será null. Podemos hacer esto ya que hemos programado que el botón se deshabilite en
+ese caso, lo que impedirá que se llame a la función onClick.
+
  */

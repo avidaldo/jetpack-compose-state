@@ -25,9 +25,9 @@ fun Ej05Screen(navController: NavController) {
         Button(onClick = { navController.navigate(route = Screens.Ejemplo05b.route) }) {
             Text(text = "Con State Hoisting")
         }
-/*        Button(onClick = { navController.navigate(route = Screens.Ejemplo05c.route) }) {
-            Text(text = "Con ViewModel")
-        }*/
+        Button(onClick = { navController.navigate(route = Screens.Ejemplo05c.route) }) {
+            Text(text = "Variante mejorada")
+        }
     }
 
 }
