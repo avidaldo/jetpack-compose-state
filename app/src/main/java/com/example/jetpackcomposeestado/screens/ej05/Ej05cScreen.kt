@@ -1,6 +1,5 @@
 package com.example.jetpackcomposeestado.screens.ej05
 
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
