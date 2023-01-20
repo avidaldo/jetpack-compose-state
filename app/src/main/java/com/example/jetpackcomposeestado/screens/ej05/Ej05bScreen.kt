@@ -49,7 +49,7 @@ fun Ej05bScreen() {
             onClick = {
                 cuenta1 += incremento1
                 cuentaG += incremento1
-                focusManager.clearFocus()
+                focusManager.clearFocus()  // Para ocultar el teclado
             },
             setIncrement = { incremento2 = it },
             onResetCount = { cuenta1 = 0 }
@@ -121,7 +121,7 @@ fun BloqueContador(
                     textAlign = TextAlign.End
                 ),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                decorationBox = { decorationBox(it) }
+                decorationBox = { DecorationBox(it) }
             )
         }
     }

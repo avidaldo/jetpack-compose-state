@@ -2,8 +2,10 @@ package com.example.jetpackcomposeestado.screens.ej05
 
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
@@ -17,17 +19,16 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeestado.R
 
 
-@Preview(showBackground = true)
 @Composable
 fun Ej05cScreen() {
 
@@ -129,15 +130,31 @@ fun BloqueContadorC(
                     textAlign = TextAlign.End
                 ),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                decorationBox = { decorationBox(it) }
+                decorationBox = { DecorationBoxC(it, incremento==null) }
             )
         }
     }
 }
 
-
 fun incrementFromStringOrNull(string: String) = string.toIntOrNull()
     ?.let { if (it > 99 || it < 1) null else it } // si no está en [1,99] (ahora devuelve null)
+
+
+@Composable
+fun DecorationBoxC(innerTextField: @Composable () -> Unit, isError: Boolean) {
+    Row(
+        Modifier
+            .clip(shape = RoundedCornerShape(5.dp))
+            .border(
+                width = if (isError) 2.dp else .5.dp,
+                color = if (isError) MaterialTheme.colors.error else MaterialTheme.colors.primary,
+                shape = RoundedCornerShape(5.dp)
+            )
+            .padding(4.dp),
+        verticalAlignment = Alignment.Bottom
+    )
+    { innerTextField() }
+}
 
 /*
 

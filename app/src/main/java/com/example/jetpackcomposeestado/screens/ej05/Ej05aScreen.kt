@@ -1,6 +1,5 @@
 package com.example.jetpackcomposeestado.screens.ej05
 
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -78,7 +77,7 @@ fun Ej05aScreen() {
                         textAlign = TextAlign.End), // (2)
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number), // (1)
                     decorationBox = {
-                        decorationBox(it)
+                        DecorationBox(it)
                     }
                 )
             }
@@ -116,7 +115,7 @@ fun Ej05aScreen() {
                         textAlign = TextAlign.End), // (2)
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number), // (1)
                     decorationBox = {
-                        decorationBox(it)
+                        DecorationBox(it)
                     }
                 )
             }
@@ -135,7 +134,7 @@ fun Ej05aScreen() {
 }
 
 @Composable
-fun decorationBox(innerTextField: @Composable () -> Unit) {
+fun DecorationBox(innerTextField: @Composable () -> Unit) {
     Row(Modifier
         .clip(shape = RoundedCornerShape(5.dp))
         .border(width = .5.dp,
