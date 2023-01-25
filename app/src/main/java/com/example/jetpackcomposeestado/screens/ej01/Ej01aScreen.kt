@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Preview(showBackground = true)
 @Composable
-fun Ej01Screen() {
+fun Ej01aScreen() {
 
     var cuenta by remember { mutableStateOf(0) }
 
