@@ -25,20 +25,19 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-
-const val startCountDefault = 0
-const val incrementDefault = 1
+const val START_COUNT_DEFAULT = 0  // https://kotlinlang.org/docs/coding-conventions.html#property-names
+const val INCREMENT_DEFAULT = 1
 
 @Preview(showBackground = true)
 @Composable
 fun Ej05aScreen() {
 
-    var cuenta1 by rememberSaveable { mutableStateOf(startCountDefault) }
-    var cuenta2 by rememberSaveable { mutableStateOf(startCountDefault) }
-    var cuentaG by rememberSaveable { mutableStateOf(startCountDefault) }
+    var cuenta1 by rememberSaveable { mutableStateOf(START_COUNT_DEFAULT) }
+    var cuenta2 by rememberSaveable { mutableStateOf(START_COUNT_DEFAULT) }
+    var cuentaG by rememberSaveable { mutableStateOf(START_COUNT_DEFAULT) }
 
-    var incremento1 by rememberSaveable { mutableStateOf(incrementDefault) }
-    var incremento2 by rememberSaveable { mutableStateOf(incrementDefault) }
+    var incremento1 by rememberSaveable { mutableStateOf(INCREMENT_DEFAULT) }
+    var incremento2 by rememberSaveable { mutableStateOf(INCREMENT_DEFAULT) }
 
     Column(
         Modifier.fillMaxSize(),
@@ -66,7 +65,7 @@ fun Ej05aScreen() {
                 BasicTextField(
                     value = incremento1.toString(),
                     onValueChange = {
-                        incremento1 = it.toIntOrNull() ?: incrementDefault
+                        incremento1 = it.toIntOrNull() ?: INCREMENT_DEFAULT
                         if (incremento1 > 99 || incremento1 < 1) incremento1 = 1
                     },
                     Modifier
@@ -104,7 +103,7 @@ fun Ej05aScreen() {
                 BasicTextField(
                     value = incremento2.toString(),
                     onValueChange = {
-                        incremento2 = it.toIntOrNull() ?: incrementDefault
+                        incremento2 = it.toIntOrNull() ?: INCREMENT_DEFAULT
                         if (incremento2 > 99 || incremento2 < 1) incremento2 = 1
                     },
                     Modifier

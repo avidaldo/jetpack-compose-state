@@ -8,7 +8,7 @@ import com.example.jetpackcompose1.screens.MainScreen
 import com.example.jetpackcomposeestado.screens.Ej03Screen
 import com.example.jetpackcomposeestado.screens.Ej04Screen
 import com.example.jetpackcomposeestado.screens.Ej05Screen
-import com.example.jetpackcomposeestado.screens.ej01.Ej01Screen
+import com.example.jetpackcomposeestado.screens.ej01.Ej01bScreen
 import com.example.jetpackcomposeestado.screens.ej02.Ej02Screen
 import com.example.jetpackcomposeestado.screens.ej03.Ej03aScreen
 import com.example.jetpackcomposeestado.screens.ej03.Ej03bScreen
@@ -18,6 +18,7 @@ import com.example.jetpackcomposeestado.screens.ej04.Ej04cScreen
 import com.example.jetpackcomposeestado.screens.ej05.Ej05aScreen
 import com.example.jetpackcomposeestado.screens.ej05.Ej05bScreen
 import com.example.jetpackcomposeestado.screens.ej05.Ej05cScreen
+import com.example.jetpackcomposeestado.screens.ej05.Ej05dScreen
 
 @Composable
 fun Navigation() {
@@ -26,7 +27,7 @@ fun Navigation() {
 
         composable(route = Screens.MainScreen.route) { MainScreen(navController) }
 
-        composable(route = Screens.Ejemplo01.route) { Ej01Screen() }
+        composable(route = Screens.Ejemplo01.route) { Ej01bScreen() }
 
         composable(route = Screens.Ejemplo02.route) { Ej02Screen() }
 
@@ -43,13 +44,14 @@ fun Navigation() {
         composable(route = Screens.Ejemplo05a.route) { Ej05aScreen() }
         composable(route = Screens.Ejemplo05b.route) { Ej05bScreen() }
         composable(route = Screens.Ejemplo05c.route) { Ej05cScreen() }
+        composable(route = Screens.Ejemplo05d.route) { Ej05dScreen() }
 
 
-/*        composable(route = Screens.Ejemplo06.route) { Ej06Screen() }
-        composable(route = Screens.Ejemplo07.route) { Ej07Screen() }
-        composable(route = Screens.Ejemplo08.route) { Ej08Screen() }*/
+/*       composable(route = Screens.Ejemplo06.route) { Ej06Screen() }
+      composable(route = Screens.Ejemplo07.route) { Ej07Screen() }
+      composable(route = Screens.Ejemplo08.route) { Ej08Screen() }*/
 
-    }
+  }
 }
 
 

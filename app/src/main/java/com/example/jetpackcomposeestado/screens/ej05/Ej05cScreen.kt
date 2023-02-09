@@ -31,12 +31,12 @@ import com.example.jetpackcomposeestado.R
 @Composable
 fun Ej05cScreen() {
 
-    var cuenta1 by rememberSaveable { mutableStateOf(startCountDefault) }
-    var cuenta2 by rememberSaveable { mutableStateOf(startCountDefault) }
-    var cuentaG by rememberSaveable { mutableStateOf(startCountDefault) }
+    var cuenta1 by rememberSaveable { mutableStateOf(START_COUNT_DEFAULT) }
+    var cuenta2 by rememberSaveable { mutableStateOf(START_COUNT_DEFAULT) }
+    var cuentaG by rememberSaveable { mutableStateOf(START_COUNT_DEFAULT) }
 
-    var incremento1: Int? by rememberSaveable { mutableStateOf(incrementDefault) }  // (1)
-    var incremento2: Int? by rememberSaveable { mutableStateOf(incrementDefault) }
+    var incremento1: Int? by rememberSaveable { mutableStateOf(INCREMENT_DEFAULT) }  // (1)
+    var incremento2: Int? by rememberSaveable { mutableStateOf(INCREMENT_DEFAULT) }
 
 
     Column(
@@ -44,7 +44,7 @@ fun Ej05cScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly,
     ) {
-        BloqueContadorC(buttonText = stringResource(R.string.count1_text),
+        BloqueContadorC(buttonText = stringResource(R.string.count1),
             cuenta = cuenta1,
             incremento = incremento1,
             onClick = {
@@ -54,7 +54,7 @@ fun Ej05cScreen() {
             setIncrement = { incremento1 = it },
             onResetCount = { cuenta1 = 0 }
         )
-        BloqueContadorC(buttonText = stringResource(R.string.count2_text),
+        BloqueContadorC(buttonText = stringResource(R.string.count2),
             cuenta = cuenta2,
             incremento = incremento2,
             onClick = {
@@ -66,7 +66,7 @@ fun Ej05cScreen() {
         )
 
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(text = "Global")
+            Text(text = stringResource(R.string.global))
             Spacer(Modifier.width(10.dp))
             Text(text = cuentaG.toString())
             Spacer(Modifier.width(6.dp))
@@ -106,7 +106,7 @@ fun BloqueContadorC(
             Box(Modifier.clickable(onClick = onResetCount)) {
                 Image(
                     painter = painterResource(id = android.R.drawable.ic_menu_delete),
-                    contentDescription = "Borrar"
+                    contentDescription = stringResource(R.string.reset)
                 )
             }
         }
@@ -115,12 +115,10 @@ fun BloqueContadorC(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.Bottom
         ) {
-            Text(text = "Incremento: ")
+            Text(text = stringResource(R.string.increment))
             BasicTextField(
                 value = incremento?.toString() ?: "",
-                onValueChange = {
-                    setIncrement(incrementFromStringOrNull(it))
-                },
+                onValueChange = { setIncrement(incrementFromStringOrNull(it)) },
                 Modifier
                     .width(30.dp)
                     .height(28.dp),
@@ -129,7 +127,9 @@ fun BloqueContadorC(
                     textAlign = TextAlign.End
                 ),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                decorationBox = { DecorationBoxC(it, incremento==null) }
+                decorationBox = {
+                    DecorationBoxC(it, incremento == null)
+                }
             )
         }
     }

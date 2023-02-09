@@ -28,12 +28,12 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun Ej05bScreen() {
 
-    var cuenta1 by rememberSaveable { mutableStateOf(startCountDefault) }
-    var cuenta2 by rememberSaveable { mutableStateOf(startCountDefault) }
-    var cuentaG by rememberSaveable { mutableStateOf(startCountDefault) }
+    var cuenta1 by rememberSaveable { mutableStateOf(START_COUNT_DEFAULT) }
+    var cuenta2 by rememberSaveable { mutableStateOf(START_COUNT_DEFAULT) }
+    var cuentaG by rememberSaveable { mutableStateOf(START_COUNT_DEFAULT) }
 
-    var incremento1 by rememberSaveable { mutableStateOf(incrementDefault) }
-    var incremento2 by rememberSaveable { mutableStateOf(incrementDefault) }
+    var incremento1 by rememberSaveable { mutableStateOf(INCREMENT_DEFAULT) }
+    var incremento2 by rememberSaveable { mutableStateOf(INCREMENT_DEFAULT) }
 
 
     val focusManager = LocalFocusManager.current
@@ -51,7 +51,7 @@ fun Ej05bScreen() {
                 cuentaG += incremento1
                 focusManager.clearFocus()  // Para ocultar el teclado
             },
-            setIncrement = { incremento2 = it },
+            setIncrement = { incremento1 = it },
             onResetCount = { cuenta1 = 0 }
         )
         BloqueContador(buttonText = "Contador 2",
@@ -129,8 +129,8 @@ fun BloqueContador(
 
 
 fun incrementFromString(string: String) = string.toIntOrNull()
-    ?.let { if (it > 99 || it < 1) incrementDefault else it } // si no está en [1,99]
-    ?: incrementDefault // o si no es un int, devuelve incrementDefault
+    ?.let { if (it > 99 || it < 1) INCREMENT_DEFAULT else it } // si no está en [1,99]
+    ?: INCREMENT_DEFAULT // o si no es un int, devuelve incrementDefault
 
 
 /*
