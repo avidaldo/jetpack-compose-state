@@ -13,14 +13,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 
+// https://developer.android.com/codelabs/jetpack-compose-state
 // https://github.com/googlecodelabs/android-compose-codelabs/tree/main/BasicStateCodelab
 
 @Composable
 fun Ej01bScreen() = StatefulCounter()
 
+
+/**
+ * Función que tiene estado
+ */
 @Composable
 fun StatefulCounter(modifier: Modifier = Modifier) {
     var count by rememberSaveable { mutableStateOf(0) }
+    /* State hoisting (elevación de estado) es un patrón por el que el estado se mueve a otra
+    función que llama a la que define la interfaz de usuario. */
     StatelessCounter(
         count = count,
         onIncrement = { count++ },
@@ -28,6 +35,9 @@ fun StatefulCounter(modifier: Modifier = Modifier) {
     )
 }
 
+/**
+ * Función sin estado (más reutilizable y fácil de testear)
+ */
 @Composable
 fun StatelessCounter(count: Int, onIncrement: () -> Unit, modifier: Modifier = Modifier) {
     Column(modifier = modifier.padding(16.dp)) {
