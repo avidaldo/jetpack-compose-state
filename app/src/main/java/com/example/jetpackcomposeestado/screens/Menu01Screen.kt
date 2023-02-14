@@ -23,7 +23,10 @@ fun Ej01Screen(navController: NavController) {
             Text(text = "Botón simple")
         }
         Button(onClick = { navController.navigate(route = Screens.Ejemplo01b.route) }) {
-            Text(text = "Con State Hoisting")
+            Text(text = "Contador con State Hoisting")
+        }
+        Button(onClick = { navController.navigate(route = Screens.Ejemplo01c.route) }) {
+            Text(text = "Cambiador con State Hoisting")
         }
     }
 

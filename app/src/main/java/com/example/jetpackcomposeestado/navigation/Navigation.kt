@@ -11,6 +11,7 @@ import com.example.jetpackcomposeestado.screens.Ej04Screen
 import com.example.jetpackcomposeestado.screens.Ej05Screen
 import com.example.jetpackcomposeestado.screens.ej01.Ej01aScreen
 import com.example.jetpackcomposeestado.screens.ej01.Ej01bScreen
+import com.example.jetpackcomposeestado.screens.ej01.Ej01cScreen
 import com.example.jetpackcomposeestado.screens.ej02.Ej02Screen
 import com.example.jetpackcomposeestado.screens.ej03.Ej03aScreen
 import com.example.jetpackcomposeestado.screens.ej03.Ej03bScreen
@@ -32,6 +33,7 @@ fun Navigation() {
         composable(route = Screens.Ejemplo01.route) { Ej01Screen(navController) }
         composable(route = Screens.Ejemplo01a.route) { Ej01aScreen() }
         composable(route = Screens.Ejemplo01b.route) { Ej01bScreen() }
+        composable(route = Screens.Ejemplo01c.route) { Ej01cScreen() }
 
         composable(route = Screens.Ejemplo02.route) { Ej02Screen() }
 
