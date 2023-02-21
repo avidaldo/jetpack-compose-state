@@ -23,4 +23,7 @@ sealed class Screens(val route: String){
     object Ejemplo04b: Screens("ej04b")
     object Ejemplo04c: Screens("ej04c")
 
+    object Ejemplo06: Screens("ej06")
+    object Ejemplo07: Screens("ej07")
+
 }

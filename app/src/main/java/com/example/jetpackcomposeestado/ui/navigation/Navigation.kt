@@ -16,6 +16,8 @@ import com.example.jetpackcomposeestado.ui.screens.ej03.Ej03bScreen
 import com.example.jetpackcomposeestado.ui.screens.ej04.Ej04aScreen
 import com.example.jetpackcomposeestado.ui.screens.ej04.Ej04bScreen
 import com.example.jetpackcomposeestado.ui.screens.ej04.Ej04cScreen
+import com.example.jetpackcomposeestado.ui.screens.lazy_column.Ej06Screen
+import com.example.jetpackcomposeestado.ui.screens.lazy_column.Ej07Screen
 
 @Composable
 fun Navigation() {
@@ -43,7 +45,12 @@ fun Navigation() {
         composable(route = Screens.Ejemplo04b.route) { Ej04bScreen() }
         composable(route = Screens.Ejemplo04c.route) { Ej04cScreen() }
 
-  }
+        composable(route = Screens.Ejemplo06.route) { Ej06Screen() }
+        composable(route = Screens.Ejemplo07.route) { Ej07Screen() }
+
+
+
+    }
 }
 
 
