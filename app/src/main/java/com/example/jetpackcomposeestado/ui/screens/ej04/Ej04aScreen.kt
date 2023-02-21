@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeestado.screens.ej04
+package com.example.jetpackcomposeestado.ui.screens.ej04
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,26 +15,27 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
-@Composable
-fun Ej04bScreen() {  // Usando State Hoisting
-    var name by rememberSaveable { mutableStateOf("") }
-    Ej04bContent(name = name, onNameChange = { name = it })
-}
+// https://www.youtube.com/watch?v=mymWGMy9pYI
+
 
 @Composable
-fun Ej04bContent(name: String, onNameChange: (String) -> Unit) {
+fun Ej04aScreen() {
     Column(
         Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
 
+        var name by rememberSaveable { mutableStateOf("") }
+
         OutlinedTextField(value = name,
-            onValueChange = onNameChange,
+            onValueChange = { name = it },
             label = { Text(text = "Name") }
         )
 
-        if (name.isNotBlank())
+        if (name.isNotBlank()) {
             Text(text = "¡Hola, $name!", Modifier.padding(10.dp))
+        }
     }
+
 }

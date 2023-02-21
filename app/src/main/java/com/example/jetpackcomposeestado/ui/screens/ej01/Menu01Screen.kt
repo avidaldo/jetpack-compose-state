@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.example.jetpackcomposeestado.navigation.Screens
+import com.example.jetpackcomposeestado.ui.navigation.Screens
 
 @Composable
 fun Ej01Screen(navController: NavController) {
@@ -26,7 +26,13 @@ fun Ej01Screen(navController: NavController) {
             Text(text = "Contador con State Hoisting")
         }
         Button(onClick = { navController.navigate(route = Screens.Ejemplo01c.route) }) {
+            Text(text = "Cambiando la forma de modificar el estado")
+        }
+        Button(onClick = { navController.navigate(route = Screens.Ejemplo01d.route) }) {
             Text(text = "Cambiador con State Hoisting")
+        }
+        Button(onClick = { navController.navigate(route = Screens.Ejemplo01e.route) }) {
+            Text(text = "Reusabilidad gracias a State Hoisting")
         }
     }
 

@@ -1,12 +1,16 @@
-package com.example.jetpackcomposeestado.navigation
+package com.example.jetpackcomposeestado.ui.navigation
 
 sealed class Screens(val route: String){
     object MainScreen: Screens("initial_screen")
+
+    object Ejemplo00: Screens("ej00")
 
     object Ejemplo01: Screens("ej01")
     object Ejemplo01a: Screens("ej01a")
     object Ejemplo01b: Screens("ej01b")
     object Ejemplo01c: Screens("ej01c")
+    object Ejemplo01d: Screens("ej01d")
+    object Ejemplo01e: Screens("ej01e")
 
     object Ejemplo02: Screens("ej02")
 
@@ -18,17 +22,5 @@ sealed class Screens(val route: String){
     object Ejemplo04a: Screens("ej04a")
     object Ejemplo04b: Screens("ej04b")
     object Ejemplo04c: Screens("ej04c")
-
-    object Ejemplo05: Screens("ej05")
-    object Ejemplo05a: Screens("ej05a")
-    object Ejemplo05b: Screens("ej05b")
-    object Ejemplo05c: Screens("ej05c")
-    object Ejemplo05d: Screens("ej05d")
-
-
-
-    object Ejemplo06: Screens("ej06")
-    object Ejemplo07: Screens("ej07")
-    object Ejemplo08: Screens("ej08")
 
 }

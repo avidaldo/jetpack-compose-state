@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.example.jetpackcomposeestado.navigation.Screens
+import com.example.jetpackcomposeestado.ui.navigation.Screens
 
 @Composable
 fun Ej03Screen(navController: NavController) {

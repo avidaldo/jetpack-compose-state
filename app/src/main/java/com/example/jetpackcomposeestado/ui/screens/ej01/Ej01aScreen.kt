@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeestado.screens.ej01
+package com.example.jetpackcomposeestado.ui.screens.ej01
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

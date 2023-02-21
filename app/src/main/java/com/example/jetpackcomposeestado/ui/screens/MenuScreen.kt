@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.example.jetpackcomposeestado.navigation.Screens
+import com.example.jetpackcomposeestado.ui.navigation.Screens
 
 @Composable
 fun MainScreen(navController: NavController) {
@@ -19,6 +19,9 @@ fun MainScreen(navController: NavController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        Button(onClick = { navController.navigate(route = Screens.Ejemplo00.route) }) {
+            Text(text = "Ejemplo 0")
+        }
         Button(onClick = { navController.navigate(route = Screens.Ejemplo01.route) }) {
             Text(text = "Ejemplo 1")
         }
@@ -30,12 +33,6 @@ fun MainScreen(navController: NavController) {
         }
         Button(onClick = { navController.navigate(route = Screens.Ejemplo04.route) }) {
             Text(text = "Ejemplo 4")
-        }
-        Button(onClick = { navController.navigate(route = Screens.Ejemplo05.route) }) {
-            Text(text = "Ejemplo 5")
-        }
-        Button(onClick = { navController.navigate(route = Screens.Ejemplo06.route) }) {
-            Text(text = "Ejemplo 6")
         }
     }
 

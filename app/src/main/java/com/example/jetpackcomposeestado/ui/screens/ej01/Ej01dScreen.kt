@@ -1,16 +1,13 @@
-package com.example.jetpackcomposeestado.screens.ej01
+package com.example.jetpackcomposeestado.ui.screens.ej01
 
 import androidx.compose.material.Button
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 
 
 @Composable
-fun Ej01cScreen() = StatefulChanger()
+fun Ej01dScreen() = StatefulChanger()
 
 @Composable
 fun StatefulChanger() {

@@ -1,4 +1,4 @@
-package com.example.jetpackcomposeestado.navigation
+package com.example.jetpackcomposeestado.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
@@ -8,20 +8,14 @@ import com.example.jetpackcompose1.screens.MainScreen
 import com.example.jetpackcomposeestado.screens.Ej01Screen
 import com.example.jetpackcomposeestado.screens.Ej03Screen
 import com.example.jetpackcomposeestado.screens.Ej04Screen
-import com.example.jetpackcomposeestado.screens.Ej05Screen
-import com.example.jetpackcomposeestado.screens.ej01.Ej01aScreen
-import com.example.jetpackcomposeestado.screens.ej01.Ej01bScreen
-import com.example.jetpackcomposeestado.screens.ej01.Ej01cScreen
-import com.example.jetpackcomposeestado.screens.ej02.Ej02Screen
-import com.example.jetpackcomposeestado.screens.ej03.Ej03aScreen
-import com.example.jetpackcomposeestado.screens.ej03.Ej03bScreen
-import com.example.jetpackcomposeestado.screens.ej04.Ej04aScreen
-import com.example.jetpackcomposeestado.screens.ej04.Ej04bScreen
-import com.example.jetpackcomposeestado.screens.ej04.Ej04cScreen
-import com.example.jetpackcomposeestado.screens.ej05.Ej05aScreen
-import com.example.jetpackcomposeestado.screens.ej05.Ej05bScreen
-import com.example.jetpackcomposeestado.screens.ej05.Ej05cScreen
-import com.example.jetpackcomposeestado.screens.ej05.Ej05dScreen
+import com.example.jetpackcomposeestado.ui.screens.ej00.Ej00Screen
+import com.example.jetpackcomposeestado.ui.screens.ej01.*
+import com.example.jetpackcomposeestado.ui.screens.ej02.Ej02Screen
+import com.example.jetpackcomposeestado.ui.screens.ej03.Ej03aScreen
+import com.example.jetpackcomposeestado.ui.screens.ej03.Ej03bScreen
+import com.example.jetpackcomposeestado.ui.screens.ej04.Ej04aScreen
+import com.example.jetpackcomposeestado.ui.screens.ej04.Ej04bScreen
+import com.example.jetpackcomposeestado.ui.screens.ej04.Ej04cScreen
 
 @Composable
 fun Navigation() {
@@ -29,11 +23,14 @@ fun Navigation() {
     NavHost(navController, startDestination = Screens.MainScreen.route) {
 
         composable(route = Screens.MainScreen.route) { MainScreen(navController) }
+        composable(route = Screens.Ejemplo00.route) { Ej00Screen() }
 
         composable(route = Screens.Ejemplo01.route) { Ej01Screen(navController) }
         composable(route = Screens.Ejemplo01a.route) { Ej01aScreen() }
         composable(route = Screens.Ejemplo01b.route) { Ej01bScreen() }
         composable(route = Screens.Ejemplo01c.route) { Ej01cScreen() }
+        composable(route = Screens.Ejemplo01d.route) { Ej01dScreen() }
+        composable(route = Screens.Ejemplo01e.route) { Ej01eScreen() }
 
         composable(route = Screens.Ejemplo02.route) { Ej02Screen() }
 
@@ -45,17 +42,6 @@ fun Navigation() {
         composable(route = Screens.Ejemplo04a.route) { Ej04aScreen() }
         composable(route = Screens.Ejemplo04b.route) { Ej04bScreen() }
         composable(route = Screens.Ejemplo04c.route) { Ej04cScreen() }
-
-        composable(route = Screens.Ejemplo05.route) { Ej05Screen(navController) }
-        composable(route = Screens.Ejemplo05a.route) { Ej05aScreen() }
-        composable(route = Screens.Ejemplo05b.route) { Ej05bScreen() }
-        composable(route = Screens.Ejemplo05c.route) { Ej05cScreen() }
-        composable(route = Screens.Ejemplo05d.route) { Ej05dScreen() }
-
-
-/*       composable(route = Screens.Ejemplo06.route) { Ej06Screen() }
-      composable(route = Screens.Ejemplo07.route) { Ej07Screen() }
-      composable(route = Screens.Ejemplo08.route) { Ej08Screen() }*/
 
   }
 }
