@@ -8,7 +8,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -19,7 +19,7 @@ val list6 = List(10) { Random.nextInt() }
 
 @Composable
 fun Ej06Screen() {
-    val list6 = remember { mutableStateListOf<Int>() }.apply {
+    val list6 = rememberSaveable { mutableStateListOf<Int>() }.apply {
         addAll(List(10) { Random.nextInt() })
     }
 

@@ -57,6 +57,6 @@ private fun StatelessReset(
 }
 
 /**
- * Aquí se ejemplifica las ventajas del state hoisting para poder reutilizar las funciones sin
+ * Aquí se ejemplifican las ventajas del state hoisting para poder reutilizar las funciones sin
  * estado.
  */
