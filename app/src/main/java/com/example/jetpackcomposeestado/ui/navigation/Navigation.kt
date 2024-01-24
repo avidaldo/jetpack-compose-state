@@ -4,10 +4,11 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.jetpackcompose1.screens.MainScreen
+import com.example.jetpackcomposeestado.ui.screens.MainScreen
 import com.example.jetpackcomposeestado.screens.Ej01Screen
 import com.example.jetpackcomposeestado.screens.Ej03Screen
 import com.example.jetpackcomposeestado.screens.Ej04Screen
+import com.example.jetpackcomposeestado.ui.screens.ej00.Ej00PruebasScreen
 import com.example.jetpackcomposeestado.ui.screens.ej00.Ej00Screen
 import com.example.jetpackcomposeestado.ui.screens.ej01.*
 import com.example.jetpackcomposeestado.ui.screens.ej02.Ej02Screen
@@ -26,6 +27,7 @@ fun Navigation() {
 
         composable(route = Screens.MainScreen.route) { MainScreen(navController) }
         composable(route = Screens.Ejemplo00.route) { Ej00Screen() }
+        composable(route = Screens.Ejemplo00Pruebas.route) { Ej00PruebasScreen() }
 
         composable(route = Screens.Ejemplo01.route) { Ej01Screen(navController) }
         composable(route = Screens.Ejemplo01a.route) { Ej01aScreen() }

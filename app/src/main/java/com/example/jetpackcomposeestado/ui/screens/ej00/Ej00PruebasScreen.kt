@@ -53,7 +53,7 @@ fun Ej00PruebasScreen() {
 }
 
 @Composable
-fun RowCase(text: String, content: @Composable RowScope.() -> Unit) {
+private fun RowCase(text: String, content: @Composable () -> Unit) {
     Row(
         Modifier
             .fillMaxWidth()
@@ -63,7 +63,7 @@ fun RowCase(text: String, content: @Composable RowScope.() -> Unit) {
         horizontalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterHorizontally)
     ) {
         Text(text = text)
-        Row (content = content)
+        content()  // TODO: es raro llamar así
     }
 }
 

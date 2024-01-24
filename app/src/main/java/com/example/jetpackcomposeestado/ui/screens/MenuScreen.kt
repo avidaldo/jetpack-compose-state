@@ -1,4 +1,4 @@
-package com.example.jetpackcompose1.screens
+package com.example.jetpackcomposeestado.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,6 +21,9 @@ fun MainScreen(navController: NavController) {
     ) {
         Button(onClick = { navController.navigate(route = Screens.Ejemplo00.route) }) {
             Text(text = "Ejemplo 0")
+        }
+        Button(onClick = { navController.navigate(route = Screens.Ejemplo00Pruebas.route) }) {
+            Text(text = "Ejemplo 0 - Pruebas")
         }
         Button(onClick = { navController.navigate(route = Screens.Ejemplo01.route) }) {
             Text(text = "Ejemplo 1")

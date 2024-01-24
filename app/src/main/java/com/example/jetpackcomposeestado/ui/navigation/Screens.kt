@@ -4,6 +4,7 @@ sealed class Screens(val route: String){
     object MainScreen: Screens("initial_screen")
 
     object Ejemplo00: Screens("ej00")
+    object Ejemplo00Pruebas: Screens("ej00Pruebas")
 
     object Ejemplo01: Screens("ej01")
     object Ejemplo01a: Screens("ej01a")
