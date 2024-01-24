@@ -56,7 +56,7 @@ private fun Caso01() {
  */
 
 @Composable
-fun Caso02() {
+private fun Caso02() {
     val count: MutableState<Int> = mutableStateOf(0)
     Log.i("---", "count = $count")
 
@@ -72,7 +72,7 @@ fun Caso02() {
  */
 
 @Composable
-fun Caso03() {
+private fun Caso03() {
     val count: MutableState<Int> = mutableStateOf(0)
     Log.i("---", "count = $count.value")
 
@@ -95,7 +95,7 @@ fun Caso03() {
 
 
 @Composable
-fun Caso04() {
+private fun Caso04() {
     val count: MutableState<Int> = remember { mutableStateOf(0) }
     Log.i("---", "count = $count.value")
 
@@ -117,7 +117,7 @@ fun Caso04() {
 
 
 @Composable
-fun Caso05() {
+private fun Caso05() {
     var count by remember { mutableStateOf(0) }
     Log.i("---", "count = $count")
 
@@ -145,7 +145,7 @@ fun Caso05() {
 
 
 @Composable
-fun Caso06() {
+private fun Caso06() {
     var count by rememberSaveable { mutableStateOf(0) }
     Log.i("---", "count = $count")
 
