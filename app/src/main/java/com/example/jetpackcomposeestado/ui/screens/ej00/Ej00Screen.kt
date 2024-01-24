@@ -10,13 +10,11 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.jetpackcomposeestado.ui.navigation.Screens
 
 
 // https://developer.android.com/codelabs/jetpack-compose-state
 // https://github.com/googlecodelabs/android-compose-codelabs/tree/main/BasicStateCodelab
 
-@Preview(showBackground = true)
 @Composable
 fun Ej00Screen() {
 
